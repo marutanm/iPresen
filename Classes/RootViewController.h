@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface RootViewController : UITableViewController {
+	NSArray *listData;
 }
-
+@property (nonatomic, retain) NSArray *listData;
 @end
