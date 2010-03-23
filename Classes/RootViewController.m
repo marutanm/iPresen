@@ -84,12 +84,14 @@
     NSUInteger row = [indexPath row];
     //cell.text = [listData objectAtIndex:row];
     [cell setText:[listData objectAtIndex:row]];
+    cell.textLabel.textAlignment = UITextAlignmentCenter;
+    cell.textLabel.font = [UIFont systemFontOfSize:40.0];
 
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath {
-    return 120;
+    return 200;
 }
 
 
