@@ -1,30 +1,29 @@
 //
-//  RootViewController.m
+//  SubViewController.m
 //  iPresen
 //
-//  Created by marutanm on 3/21/10.
-//  Copyright shisobu.in 2010. All rights reserved.
+//  Created by marutanm on 3/23/10.
+//  Copyright 2010 shisobu.in. All rights reserved.
 //
 
-#import "RootViewController.h"
 #import "SubViewController.h"
 
 
-@implementation RootViewController
-@synthesize listData;
+@implementation SubViewController
+
 
 #pragma mark -
 #pragma mark View lifecycle
 
 - (void)viewDidLoad {
-    self.title = @"list";
-    NSArray *array = [[NSArray alloc] initWithObjects:@"foo", @"bar", nil];
-    self.listData = array;
-    [array release];
     [super viewDidLoad];
+    self.title = @"hoge";
 
+    // Uncomment the following line to preserve selection between presentations.
+    self.clearsSelectionOnViewWillAppear = NO;
+ 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 /*
@@ -39,36 +38,36 @@
 */
 /*
 - (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
+    [super viewWillDisappear:animated];
 }
 */
 /*
 - (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
+    [super viewDidDisappear:animated];
 }
 */
 
- // Override to allow orientations other than the default portrait orientation.
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations.
-	// return (interfaceOrientation == UIInterfaceOrientationPortrait);
-	return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
+    // Override to allow orientations other than the default portrait orientation.
+    return YES;
 }
 
 
 #pragma mark -
 #pragma mark Table view data source
 
-// Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    // return <#number of sections#>;
     return 1;
 }
 
 
-// Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.listData count];
-    // return 0;
+    // Return the number of rows in the section.
+    // return <#number of rows in section#>;
+    return 0;
 }
 
 
@@ -82,18 +81,9 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	// Configure the cell.
-    NSUInteger row = [indexPath row];
-    //cell.text = [listData objectAtIndex:row];
-    [cell setText:[listData objectAtIndex:row]];
-    cell.textLabel.textAlignment = UITextAlignmentCenter;
-    cell.textLabel.font = [UIFont systemFontOfSize:40.0];
-
+    // Configure the cell...
+    
     return cell;
-}
-
-- (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath {
-    return 200;
 }
 
 
@@ -111,11 +101,11 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
 */
@@ -141,12 +131,14 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-	 SubViewController *detailViewController = [[SubViewController alloc] init];
+    // Navigation logic may go here. Create and push another view controller.
+	/*
+	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
 	 [self.navigationController pushViewController:detailViewController animated:YES];
 	 [detailViewController release];
+	 */
 }
 
 
