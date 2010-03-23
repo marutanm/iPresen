@@ -79,15 +79,17 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
 	// Configure the cell.
     NSUInteger row = [indexPath row];
-    //cell.text = [listData objectAtIndex:row];
-    [cell setText:[listData objectAtIndex:row]];
+    cell.textLabel.text = [listData objectAtIndex:row];
+    cell.detailTextLabel.text = [listData objectAtIndex:row];
+    // [cell setText:[listData objectAtIndex:row]];
     cell.textLabel.textAlignment = UITextAlignmentCenter;
-    cell.textLabel.font = [UIFont systemFontOfSize:40.0];
+    cell.textLabel.font = [UIFont systemFontOfSize:60.0];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:30.0];
 
     return cell;
 }
