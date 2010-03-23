@@ -11,19 +11,16 @@
 
 
 @implementation RootViewController
-@synthesize listData;
+// @synthesize listData;
 
 #pragma mark -
 #pragma mark View lifecycle
 
 - (void)viewDidLoad {
-    self.title = @"list";
-    NSArray *array = [[NSArray alloc] initWithObjects:@"foo", @"bar", nil];
-    self.listData = array;
-    [array release];
     [super viewDidLoad];
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    self.title = @"list";
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
@@ -67,8 +64,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.listData count];
-    // return 0;
+    return 3;
 }
 
 
@@ -84,6 +80,8 @@
     
 	// Configure the cell.
     NSUInteger row = [indexPath row];
+    NSArray *listData = [[NSArray alloc] initWithObjects:@"foo", @"bar", @"foobar", @"foofoo", @"barbar", nil];
+    // self.listData = array;
     cell.textLabel.text = [listData objectAtIndex:row];
     cell.detailTextLabel.text = [listData objectAtIndex:row];
     // [cell setText:[listData objectAtIndex:row]];
@@ -93,7 +91,7 @@
 
     return cell;
 }
-
+// 
 - (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath {
     return 200;
 }
