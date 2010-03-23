@@ -46,13 +46,12 @@
 }
 */
 
-/*
  // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	// return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
- */
 
 
 #pragma mark -
@@ -83,9 +82,14 @@
     
 	// Configure the cell.
     NSUInteger row = [indexPath row];
-    cell.text = [listData objectAtIndex:row];
+    //cell.text = [listData objectAtIndex:row];
+    [cell setText:[listData objectAtIndex:row]];
 
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath {
+    return 120;
 }
 
 
