@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "SubViewController.h"
+#import "PageControlViewController.h"
 
 
 @implementation RootViewController
@@ -141,12 +142,13 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-	 SubViewController *detailViewController = [[SubViewController alloc] init];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
+// 	 SubViewController *detailViewController = [[SubViewController alloc] init];
+// 	 [self.navigationController pushViewController:detailViewController animated:YES];
+// 	 [detailViewController release];
+    PageControlViewController *viewController = [[PageControlViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+    [viewController release];
+     
 }
 
 
