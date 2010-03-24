@@ -15,6 +15,8 @@
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
+		5027B7A5115A412900CF728C /* PageControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5027B7A2115A412900CF728C /* PageControlViewController.m */; };
+		5027B7A6115A412900CF728C /* PageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5027B7A4115A412900CF728C /* PageScrollView.m */; };
 		5033A21711564429003F6D37 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5033A21611564429003F6D37 /* MainWindow-iPad.xib */; };
 		5033A26D11588F09003F6D37 /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5033A26B11588F09003F6D37 /* SubViewController.m */; };
 		5033A26E11588F09003F6D37 /* SubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5033A26C11588F09003F6D37 /* SubViewController.xib */; };
@@ -33,6 +35,10 @@
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		28F335F01007B36200424DE2 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5027B7A1115A412900CF728C /* PageControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageControlViewController.h; sourceTree = "<group>"; };
+		5027B7A2115A412900CF728C /* PageControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageControlViewController.m; sourceTree = "<group>"; };
+		5027B7A3115A412900CF728C /* PageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageScrollView.h; sourceTree = "<group>"; };
+		5027B7A4115A412900CF728C /* PageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageScrollView.m; sourceTree = "<group>"; };
 		5033A21611564429003F6D37 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		5033A26A11588F09003F6D37 /* SubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubViewController.h; sourceTree = "<group>"; };
 		5033A26B11588F09003F6D37 /* SubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubViewController.m; sourceTree = "<group>"; };
@@ -57,6 +63,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5027B7A1115A412900CF728C /* PageControlViewController.h */,
+				5027B7A2115A412900CF728C /* PageControlViewController.m */,
+				5027B7A3115A412900CF728C /* PageScrollView.h */,
+				5027B7A4115A412900CF728C /* PageScrollView.m */,
 				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
 				1D3623240D0F684500981E51 /* iPresenAppDelegate.h */,
@@ -193,6 +203,8 @@
 				1D3623260D0F684500981E51 /* iPresenAppDelegate.m in Sources */,
 				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
 				5033A26D11588F09003F6D37 /* SubViewController.m in Sources */,
+				5027B7A5115A412900CF728C /* PageControlViewController.m in Sources */,
+				5027B7A6115A412900CF728C /* PageScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
