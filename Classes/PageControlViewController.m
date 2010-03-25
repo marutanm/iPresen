@@ -8,20 +8,15 @@
     /* ページ表示のデモ用画像のロードする */
     pages = [[NSMutableArray alloc] init];
     for(int i = 0; i < 5; i++) {
-//         NSLog(@"デモ用画像のダウンロード中 %d\n", i);
-//         UIImage *background = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.zdziarski.com/demo/black.png"]]];
-//         UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.zdziarski.com/demo/%d.png", i+1]]]];
-//         UIImageView *page = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-//         page.image = background;
-//         UIImageView *subview = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-//         subview.image = image;
-//         subview.bounds = CGRectMake(0.0, 0.0, image.size.width, image.size.height);
         UIView *subview = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+        // subview.backgroundColor = [UIColor blackColor];
+        // subview.backgroundColor = [UIColor colorWithRed:i*30 green:i*30 blue:i*30 alpha:0];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 200, 100, 100)];
         label.text = [NSString stringWithFormat:@"%d", i];
+        // subview.backgroundColor = [UIColor colorWithRed:i*30 green:i*30 blue:i*30 alpha:0];
+        // label.textColor = [UIColor whiteColor];
+
         [subview addSubview:label];
-        // [page addSubview:subview];
-        // [pages addObject:page];    
         [pages addObject:subview];    
     }
     
@@ -32,7 +27,8 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    // return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
 
 

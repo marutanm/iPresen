@@ -5,17 +5,22 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self != nil) {
-        _pageRegion = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height - 60.0);
-        _controlRegion = CGRectMake(frame.origin.x, frame.size.height - 60.0, frame.size.width, 60.0);
+        NSLog([NSString stringWithFormat:@"%f, %f, %f, %f", frame.origin.x, frame.origin.y, frame.size.height - 60.0, frame.size.width]);
+        _pageRegion = CGRectMake(0, 0, frame.size.height, frame.size.width - 60.0);
+        _controlRegion = CGRectMake(0, frame.size.width - 60.0, frame.size.width, 60.0);
+        // _pageRegion = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height - 60.0);
+        // _controlRegion = CGRectMake(frame.origin.x, frame.size.height - 60.0, frame.size.width, 60.0);
         self.delegate = nil;
         
         scrollView = [[UIScrollView alloc] initWithFrame:_pageRegion];
+        scrollView.backgroundColor = [UIColor cyanColor];
         scrollView.pagingEnabled = YES;
         scrollView.delegate = self;
         [self addSubview:scrollView];
         
         pageControl = [[UIPageControl alloc] initWithFrame:_controlRegion];
         [pageControl addTarget:self action:@selector(pageControlDidChange:) forControlEvents:UIControlEventValueChanged];
+        pageControl.backgroundColor = [UIColor orangeColor];
         [self addSubview:pageControl];
     }
     return self;

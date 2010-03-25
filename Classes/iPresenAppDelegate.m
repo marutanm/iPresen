@@ -7,41 +7,30 @@
 //
 
 #import "iPresenAppDelegate.h"
-#import "RootViewController.h"
-
+#import "PageControlViewController.h"
 
 @implementation iPresenAppDelegate
 
 @synthesize window;
-@synthesize navigationController;
+@synthesize viewController;
 
 
-#pragma mark -
-#pragma mark Application lifecycle
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    // Override point for customization after app launch    
-	
-	[window addSubview:[navigationController view]];
+- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    
+    self.window = [[[UIWindow alloc] initWithFrame:screenBounds] autorelease];
+    viewController = [[PageControlViewController alloc] init];
+    
+    [window addSubview:viewController.view];
     [window makeKeyAndVisible];
-	return YES;
 }
 
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-	// Save data if appropriate
-}
-
-
-#pragma mark -
-#pragma mark Memory management
 
 - (void)dealloc {
-	[navigationController release];
-	[window release];
-	[super dealloc];
+    [viewController release];
+    [window release];
+    [super dealloc];
 }
-
 
 @end
 

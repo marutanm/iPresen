@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class PageControlViewController;
+
 @interface iPresenAppDelegate : NSObject <UIApplicationDelegate> {
-    
-    UIWindow *window;
-    UINavigationController *navigationController;
+	UIWindow *window;
+	PageControlViewController *viewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+@property (nonatomic, retain) IBOutlet PageControlViewController *viewController;
 
 @end
-
