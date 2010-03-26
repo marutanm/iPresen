@@ -7,16 +7,23 @@
     
     /* ページ表示のデモ用画像のロードする */
     pages = [[NSMutableArray alloc] init];
+    CGRect frame = self.view.frame;
+    NSLog([NSString stringWithFormat:@"self.view.frame\norigin.x:%f\norigin.y:%f\nsize.height:%f\nsize.width%f", frame.origin.x, frame.origin.y, frame.size.height, frame.size.width]);
     for(int i = 0; i < 5; i++) {
-        UIView *subview = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-        // subview.backgroundColor = [UIColor blackColor];
-        // subview.backgroundColor = [UIColor colorWithRed:i*30 green:i*30 blue:i*30 alpha:0];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 200, 100, 100)];
-        label.text = [NSString stringWithFormat:@"%d", i];
-        // subview.backgroundColor = [UIColor colorWithRed:i*30 green:i*30 blue:i*30 alpha:0];
-        // label.textColor = [UIColor whiteColor];
+        UIView *subview = [[UIView alloc] initWithFrame:self.view.frame];
+        // UIView *subview = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+        subview.backgroundColor = [UIColor grayColor];
+        // Set title for each slide
+        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.height, frame.size.width * 0.3)];
+        title.text = [NSString stringWithFormat:@"%d", i];
+        title.backgroundColor = [UIColor redColor];
+        // set contents for each slide
+        UILabel *contents = [[UILabel alloc] initWithFrame:CGRectMake(100, 400, 600, 300)];
+        contents.text = @"contents";
+        contents.backgroundColor = [UIColor blueColor];
 
-        [subview addSubview:label];
+        [subview addSubview:title];
+        [subview addSubview:contents];
         [pages addObject:subview];    
     }
     
