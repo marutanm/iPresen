@@ -51,12 +51,19 @@
     NSError *parseError = nil;
     // [self parseXMLFileAtURL:url parseError:&parseError];
     XMLParser *doc = [[XMLParser alloc] initWithXMLString:url];
-    
+   
 
+
+    for(int i = 0; i < slides.count; i++) {
+        UIView *subview = [[UIView alloc] initWithFrame:frame];
+        [pages addObject:[self prepareSlide:subview dict:[slides objectAtIndex:i]]];
+        [subview release];
+    }
     scrollView = [[PageScrollView alloc] initWithFrame:self.view.frame];
     scrollView.pages = pages;
     scrollView.delegate = self;
     self.view = scrollView;
+    [pages release];
 }
 
 - (id) prepareSlide:(UIView *)view dict:(NSDictionary *)dict{
