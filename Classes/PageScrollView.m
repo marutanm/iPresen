@@ -7,10 +7,7 @@
     if (self != nil) {
         NSLog([NSString stringWithFormat:@"%f, %f, %f, %f", frame.origin.x, frame.origin.y, frame.size.height - 60.0, frame.size.width]);
         _pageRegion = CGRectMake(0, 0, frame.size.width, frame.size.height);
-        // _pageRegion = CGRectMake(0, 0, frame.size.height, frame.size.width - 60.0);
         _controlRegion = CGRectMake(0, frame.size.height - 60.0, frame.size.width, 60.0);
-        // _pageRegion = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height - 60.0);
-        // _controlRegion = CGRectMake(frame.origin.x, frame.size.height - 60.0, frame.size.width, 60.0);
         self.delegate = nil;
         
         scrollView = [[UIScrollView alloc] initWithFrame:_pageRegion];
