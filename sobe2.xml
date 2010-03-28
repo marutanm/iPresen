@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<slides>
+    <page>
+        <title>タイトル1</title>
+        <contents>内容1-1</contents>
+        <contents>内容1-2</contents>
+    </page>
+
+    <page>
+        <title>ページ2</title>
+        <contents>内容2</contents>
+    </page>
+</slides>

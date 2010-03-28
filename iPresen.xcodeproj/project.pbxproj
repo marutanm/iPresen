@@ -14,6 +14,7 @@
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		5027B7A5115A412900CF728C /* PageControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5027B7A2115A412900CF728C /* PageControlViewController.m */; };
 		5027B7A6115A412900CF728C /* PageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5027B7A4115A412900CF728C /* PageScrollView.m */; };
+		502EC793115F399400CB421E /* sobe2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 502EC792115F399400CB421E /* sobe2.xml */; };
 		5033A21711564429003F6D37 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5033A21611564429003F6D37 /* MainWindow-iPad.xib */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		5027B7A2115A412900CF728C /* PageControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageControlViewController.m; sourceTree = "<group>"; };
 		5027B7A3115A412900CF728C /* PageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageScrollView.h; sourceTree = "<group>"; };
 		5027B7A4115A412900CF728C /* PageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageScrollView.m; sourceTree = "<group>"; };
+		502EC792115F399400CB421E /* sobe2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sobe2.xml; sourceTree = "<group>"; };
 		5033A21611564429003F6D37 /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* iPresen-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iPresen-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107310486CEB800E47090 /* iPresen-Info.plist */,
+				502EC792115F399400CB421E /* sobe2.xml */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5033A21711564429003F6D37 /* MainWindow-iPad.xib in Resources */,
+				502EC793115F399400CB421E /* sobe2.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
