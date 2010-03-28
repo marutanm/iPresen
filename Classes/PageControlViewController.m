@@ -2,7 +2,8 @@
 
 @implementation PageControlViewController
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewDidLoad {
+    [super viewDidLoad];
 // 	// CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI * 90 / 180.0f);
 //  // 	transform = CGAffineTransformTranslate(transform, 80, 80);
 // 	// self.view.transform = transform;
@@ -43,7 +44,8 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // return YES;
     // return (interfaceOrientation == UIInterfaceOrientationPortrait);
-	return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+	// return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+	return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
 
