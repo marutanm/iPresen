@@ -74,20 +74,23 @@
 
     [view addSubview:title];
     [view addSubview:contents];
+    [title release];
+    [contents release];
     return view;
 }
 
 - (id) title:(CGRect)frame text:(NSString *)text{
     float margin = 10;
+    float height = frame.size.height * 0.3;
     // Set title for each slide
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(margin, margin, frame.size.width - margin * 2, frame.size.height * 0.3)];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(margin, margin, frame.size.width - margin * 2, height)];
     title.backgroundColor = [UIColor clearColor];
     title.opaque = YES;
     title.textColor = [UIColor whiteColor];
     title.textAlignment = UITextAlignmentCenter;
-    title.font = [UIFont boldSystemFontOfSize:frame.size.height * 0.3];
+    title.font = [UIFont boldSystemFontOfSize:height];
     title.adjustsFontSizeToFitWidth = YES;
-    title.minimumFontSize = frame.size.height * 0.3 / 10;
+    title.minimumFontSize = height / 4;
     title.text = text;
     return title;
 }
@@ -103,12 +106,13 @@
         contents.textColor = [UIColor whiteColor];
         contents.font = [UIFont systemFontOfSize:height];
         contents.adjustsFontSizeToFitWidth = YES;
-        contents.minimumFontSize = height / 2;
-        // contents.numberOfLines = 2;
+        contents.minimumFontSize = height / 4;
         contents.lineBreakMode = UILineBreakModeWordWrap;
         // contents.lineBreakMode = UILineBreakModeClip;
+        // contents.numberOfLines = 2;
         contents.text = [array objectAtIndex:i];
         [view addSubview:contents];
+        [contents release];
     }
     return view;
 }
