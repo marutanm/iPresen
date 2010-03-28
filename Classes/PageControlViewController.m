@@ -4,7 +4,7 @@
 
 - (void)loadView {
     [super loadView];
-    
+
     // rotate view to fit screen
     CGAffineTransform transform = self.view.transform;
     transform = CGAffineTransformRotate(transform, (M_PI * 90 / 180.0));
@@ -12,10 +12,10 @@
 
     CGRect frame = self.view.frame;
     pages = [[NSMutableArray alloc] init];
-    
+
     for(int i = 0; i < 5; i++) {
         UIView *subview = [[UIView alloc] initWithFrame:frame];
-        subview.backgroundColor = [UIColor whiteColor];
+        subview.backgroundColor = [UIColor darkGrayColor];
 
         [subview addSubview:[self title:frame]];
         [subview addSubview:[self contents:frame]];
@@ -29,21 +29,33 @@
 }
 
 - (id) title:(CGRect)frame {
-        // Set title for each slide
-        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, frame.size.width - 20, frame.size.height * 0.3)];
-        title.text = [NSString stringWithFormat:@"title"];
-        title.textColor = [UIColor whiteColor];
-        title.backgroundColor = [UIColor darkGrayColor];
-        return title;
+    float margin = 10;
+    // Set title for each slide
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(margin, margin, frame.size.width - margin * 2, frame.size.height * 0.3)];
+    title.backgroundColor = [UIColor clearColor];
+    title.opaque = YES;
+    title.textColor = [UIColor whiteColor];
+    title.textAlignment = UITextAlignmentCenter;
+    title.font = [UIFont boldSystemFontOfSize:frame.size.height * 0.3];
+    title.adjustsFontSizeToFitWidth = YES;
+    title.minimumFontSize = frame.size.height * 0.3 / 10;
+    title.text = @"hoge\nfuga\nhoge";
+    return title;
 }
 
 - (id) contents:(CGRect)frame {
-        // set contents for each slide
-        UILabel *contents = [[UILabel alloc] initWithFrame:CGRectMake(0, 400, frame.size.width * 0.9, 360)];
-        contents.text = @"contents";
-        contents.textColor = [UIColor redColor];
-        contents.backgroundColor = [UIColor lightGrayColor];
-        return contents;
+    float margin = 50;
+    // set contents for each slide
+    UILabel *contents = [[UILabel alloc] initWithFrame:CGRectMake(margin, frame.size.height * 0.4, frame.size.width - margin * 2, frame.size.height * 0.6 - margin)];
+    contents.backgroundColor = [UIColor clearColor];
+    contents.textColor = [UIColor whiteColor];
+    contents.font = [UIFont systemFontOfSize:frame.size.height * 0.1];
+    contents.adjustsFontSizeToFitWidth = YES;
+    contents.minimumFontSize = frame.size.height * 0.3 / 10;
+    contents.lineBreakMode = UILineBreakModeWordWrap;
+    contents.numberOfLines = 0;
+    contents.text = @"cont\nents";
+    return contents;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
