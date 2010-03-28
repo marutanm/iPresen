@@ -17,14 +17,8 @@
         UIView *subview = [[UIView alloc] initWithFrame:frame];
         subview.backgroundColor = [UIColor whiteColor];
 
-        // set contents for each slide
-        UILabel *contents = [[UILabel alloc] initWithFrame:CGRectMake(0, 400, frame.size.width * 0.9, 360)];
-        contents.text = @"contents";
-        contents.textColor = [UIColor redColor];
-        contents.backgroundColor = [UIColor lightGrayColor];
-
         [subview addSubview:[self title:frame]];
-        [subview addSubview:contents];
+        [subview addSubview:[self contents:frame]];
         [pages addObject:subview];    
     }
 
@@ -41,6 +35,15 @@
         title.textColor = [UIColor whiteColor];
         title.backgroundColor = [UIColor darkGrayColor];
         return title;
+}
+
+- (id) contents:(CGRect)frame {
+        // set contents for each slide
+        UILabel *contents = [[UILabel alloc] initWithFrame:CGRectMake(0, 400, frame.size.width * 0.9, 360)];
+        contents.text = @"contents";
+        contents.textColor = [UIColor redColor];
+        contents.backgroundColor = [UIColor lightGrayColor];
+        return contents;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
