@@ -2,23 +2,30 @@
 
 @implementation PageControlViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+// 	// CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI * 90 / 180.0f);
+//  // 	transform = CGAffineTransformTranslate(transform, 80, 80);
+// 	// self.view.transform = transform;
+    // self.view.transform = CGAffineTransformConcat(self.view.transform, CGAffineTransformMakeRotation((M_PI * 90 / 180.0)));
+}
+
 - (void)loadView {
     [super loadView];
-    
-    /* ページ表示のデモ用画像のロードする */
-    pages = [[NSMutableArray alloc] init];
+
     CGRect frame = self.view.frame;
-    NSLog([NSString stringWithFormat:@"self.view.frame\norigin.x:%f\norigin.y:%f\nsize.height:%f\nsize.width%f", frame.origin.x, frame.origin.y, frame.size.height, frame.size.width]);
+    NSLog([NSString stringWithFormat:@"self.view.frame\norigin.x:%f\norigin.y:%f\nsize.width:%f\nsize.height%f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height]);
+
+    pages = [[NSMutableArray alloc] init];
     for(int i = 0; i < 5; i++) {
-        UIView *subview = [[UIView alloc] initWithFrame:self.view.frame];
-        // UIView *subview = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+        // UIView *subview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.height, frame.size.width)];
+        UIView *subview = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
         subview.backgroundColor = [UIColor grayColor];
         // Set title for each slide
-        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.height, frame.size.width * 0.3)];
+        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width * 0.9, frame.size.height * 0.3)];
         title.text = [NSString stringWithFormat:@"%d", i];
         title.backgroundColor = [UIColor redColor];
         // set contents for each slide
-        UILabel *contents = [[UILabel alloc] initWithFrame:CGRectMake(100, 400, 600, 300)];
+        UILabel *contents = [[UILabel alloc] initWithFrame:CGRectMake(0, 400, frame.size.width * 0.9, 360)];
         contents.text = @"contents";
         contents.backgroundColor = [UIColor blueColor];
 
@@ -34,6 +41,7 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    // return YES;
     // return (interfaceOrientation == UIInterfaceOrientationPortrait);
 	return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
