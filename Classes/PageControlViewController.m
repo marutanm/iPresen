@@ -15,7 +15,7 @@
     pages = [[NSMutableArray alloc] init];
 
 
-    NSArray *contents = [NSArray arrayWithObjects:@"cont1", @"cont2", nil];
+    NSArray *contents = [NSArray arrayWithObjects:@"cont1", @"cont2 if content was too long...aaaaaaaaaa aaaaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa", @"cont3", nil];
     NSArray *keys = [NSArray arrayWithObjects:@"title", @"contents", nil]; 
     NSArray *values = [NSArray arrayWithObjects:@"this is title", contents, nil];
     NSDictionary *page = [NSDictionary dictionaryWithObjects:values forKeys:keys];
@@ -94,11 +94,12 @@
         UILabel *contents = [[UILabel alloc] initWithFrame:CGRectMake(0, i * height, frame.size.width - margin * 2, height)];
         contents.backgroundColor = [UIColor clearColor];
         contents.textColor = [UIColor whiteColor];
-        contents.font = [UIFont systemFontOfSize:frame.size.height * 0.1];
+        contents.font = [UIFont systemFontOfSize:height];
         contents.adjustsFontSizeToFitWidth = YES;
-        contents.minimumFontSize = frame.size.height * 0.3 / 10;
+        contents.minimumFontSize = height / 2;
+        // contents.numberOfLines = 2;
         contents.lineBreakMode = UILineBreakModeWordWrap;
-        contents.numberOfLines = 0;
+        // contents.lineBreakMode = UILineBreakModeClip;
         contents.text = [array objectAtIndex:i];
         [view addSubview:contents];
     }
