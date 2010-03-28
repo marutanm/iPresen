@@ -15,30 +15,16 @@
     pages = [[NSMutableArray alloc] init];
 
 
+
     NSArray *contents = [NSArray arrayWithObjects:@"cont1", @"cont2 if content was too long...aaaaaaaaaa aaaaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa", @"cont3", nil];
     NSArray *keys = [NSArray arrayWithObjects:@"title", @"contents", nil]; 
-    NSArray *values = [NSArray arrayWithObjects:@"this is title", contents, nil];
+    NSArray *values = [NSArray arrayWithObjects:@"this is title? yes this is title", contents, nil];
     NSDictionary *page = [NSDictionary dictionaryWithObjects:values forKeys:keys];
     NSMutableArray *slides = [NSMutableArray array];
     [slides addObject:page];
     [slides addObject:page];
     [slides addObject:page];
     [slides addObject:page];
-    // NSDictionary *dic = [slides objectAtIndex:1];
-    // NSLog(@"%@", [dic objectForKey:@"title"]);
-
-
-
-    for(int i = 0; i < slides.count; i++) {
-        UIView *subview = [[UIView alloc] initWithFrame:frame];
-        subview = [self prepareSlide:subview dict:[slides objectAtIndex:i]];
-
-        // UILabel *title = [self title:frame dict:[slides objectAtIndex:i]];
-        // UILabel *contents = [self contents:frame];
-
-        [pages addObject:subview];    
-    }
-
 
     NSURL *url;
     NSBundle *bundle = [NSBundle mainBundle];
