@@ -25,7 +25,7 @@
 
     // load XML file
     NSError *parseError = nil;
-    [[XMLParser alloc] parseXMLFileByName:@"sobe2" parseError:&parseError];
+    NSMutableArray *slidesData = [[XMLParser alloc] parseXMLFileByName:@"sobe2" parseError:&parseError];
 
     scrollView = [[PageScrollView alloc] initWithFrame:self.view.frame];
     scrollView.pages = pages;
