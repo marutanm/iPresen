@@ -58,9 +58,10 @@
     }
     if ([elementName isEqualToString:@"page"]) {
                     [array addObject:[[NSMutableDictionary alloc] init]];
-    } else {
-        currentKey = elementName;
+    } else if ([elementName isEqualToString:@"page"]) {
+              [[array lastObject] setObject:[[NSMutableArray alloc] init] forKey:elementName];
     }
+    currentKey = elementName;
     NSLog(@"start: %@", elementName);
     // NSLog(@"currentKey: %@", currentKey);
 }
@@ -76,13 +77,16 @@
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
-    if (![string isEqualToString:@""]){
-                  NSLog(@"string: %@", string);
-    }
+//    if (![string isEqualToString:@""]){
+//                  NSLog(@"string: %@", string);
+//    }
     if ([currentKey isEqualToString:@"title"]) {
         [[array lastObject] setValue:string forKey:currentKey];
-        NSLog(@"%@:%@", currentKey, string);
+    } else if ([currentKey isEqualToString:@"content"]){
+          [[[array lastObject] objectForKey:currentKey] addObject:string];
+    } else {
     }
+        NSLog(@"%@:%@", currentKey, string);
 }
 
 @end
