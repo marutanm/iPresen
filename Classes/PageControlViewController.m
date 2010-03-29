@@ -23,20 +23,9 @@
         [pages addObject:subview];    
     }
 
-
-    NSURL *url;
-    NSBundle *bundle = [NSBundle mainBundle];
-    if (bundle) {
-        NSString *localFilePath = [bundle pathForResource:@"sobe2" ofType:@"xml"];
-        if (localFilePath) {
-            url = [NSURL fileURLWithPath:localFilePath];
-        }
-    }
+    // load XML file
     NSError *parseError = nil;
-    // [self parseXMLFileAtURL:url parseError:&parseError];
-    XMLParser *doc = [[XMLParser alloc] initWithXMLString:url];
-    
-
+    [[XMLParser alloc] parseXMLFileByName:@"sobe2" parseError:&parseError];
 
     scrollView = [[PageScrollView alloc] initWithFrame:self.view.frame];
     scrollView.pages = pages;

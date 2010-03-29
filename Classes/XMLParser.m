@@ -31,6 +31,18 @@
     NSLog(@"start parse XML");
 }
 
+- (void)parseXMLFileByName:(NSString *)file parseError:(NSError **)error{
+    NSURL *url;
+    NSBundle *bundle = [NSBundle mainBundle];
+    if (bundle) {
+        NSString *localFilePath = [bundle pathForResource:file ofType:@"xml"];
+        if (localFilePath) {
+            url = [NSURL fileURLWithPath:localFilePath];
+        }
+    }
+    [self parseXMLFileAtURL:url parseError:&error];
+}
+
 - (void)parseXMLFileAtURL:(NSURL *)URL parseError:(NSError **)error
 {
     NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:URL];
