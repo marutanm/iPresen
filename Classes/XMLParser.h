@@ -10,7 +10,9 @@
 
 
 @interface XMLParser : NSObject {
-	NSXMLParser *parser;
+	// NSXMLParser *parser;
+    NSMutableArray *array;
+    NSString *currentKey;
 }
 
 - (id) initWithXMLString:(NSString*)string;

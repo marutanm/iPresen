@@ -13,7 +13,7 @@
 
 - (void) dealloc{
     NSLog(@"dealloc");
-    [parser release];
+    // [parser release];
     [super dealloc];
 }
 
@@ -23,6 +23,7 @@
 }
 
 - (void)parseXMLFileByName:(NSString *)file parseError:(NSError **)error{
+    NSMutableArray *array = [[NSMutableArray alloc] init];
     NSURL *url;
     NSBundle *bundle = [NSBundle mainBundle];
     if (bundle) {
@@ -32,6 +33,7 @@
         }
     }
     [self parseXMLFileAtURL:url parseError:&error];
+    return array;
 }
 
 - (void)parseXMLFileAtURL:(NSURL *)URL parseError:(NSError **)error
@@ -55,8 +57,12 @@
         elementName = qName;
     }
     if ([elementName isEqualToString:@"page"]) {
+                    [array addObject:[[NSMutableDictionary alloc] init]];
+    } else {
+        currentKey = elementName;
     }
-    NSLog(@"%@ start", elementName);
+    NSLog(@"start: %@", elementName);
+    // NSLog(@"currentKey: %@", currentKey);
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
@@ -64,12 +70,19 @@
     if (qName) {
         elementName = qName;
     }
-    NSLog(@"%@ end", elementName);
+    currentKey = nil;
+    NSLog(@"end: %@", elementName);
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
-    NSLog(@"%@", string);
+    if (![string isEqualToString:@""]){
+                  NSLog(@"string: %@", string);
+    }
+    if ([currentKey isEqualToString:@"title"]) {
+        [[array lastObject] setValue:string forKey:currentKey];
+        NSLog(@"%@:%@", currentKey, string);
+    }
 }
 
 @end
