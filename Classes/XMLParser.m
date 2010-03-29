@@ -11,15 +11,6 @@
 
 @implementation XMLParser
 
-- (id) initWithXMLString:(NSString*)string{
-//     if (self = [super init]) {
-//         parser = [[NSXMLParser alloc] initWithData:[string dataUsingEncoding:NSUTF8StringEncoding]];
-//         [parser setDelegate:self];
-//         [parser parse];
-//     }
-//     return self;
-}
-
 - (void) dealloc{
     NSLog(@"dealloc");
     [parser release];
@@ -64,7 +55,6 @@
         elementName = qName;
     }
     if ([elementName isEqualToString:@"page"]) {
-        // NSLog(@"title is %@ , content is %@", [attributeDict objectForKey:@"title"], [attributeDict objectForKey:@"content"]);
     }
     NSLog(@"%@ start", elementName);
 }
