@@ -22,7 +22,7 @@
     NSLog(@"start parse XML");
 }
 
-- (void)parseXMLFileByName:(NSString *)file parseError:(NSError **)error{
+- (NSMutableArray *)parseXMLFileByName:(NSString *)file parseError:(NSError **)error{
     NSMutableArray *array = [[NSMutableArray alloc] init];
     NSURL *url;
     NSBundle *bundle = [NSBundle mainBundle];

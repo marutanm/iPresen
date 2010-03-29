@@ -16,7 +16,13 @@
 
     // load XML file
     NSError *parseError = nil;
-    NSMutableArray *slidesData = [[XMLParser alloc] parseXMLFileByName:@"sobe2" parseError:&parseError];
+    NSMutableArray *slides= [[XMLParser alloc] parseXMLFileByName:@"sobe2" parseError:&parseError];
+    NSLog(@"slides");
+    NSLog(@"%@", [slides class]);
+    for(int i = 0; i < slides.count; i++) {
+        NSLog(@"%d %@", i, [slides objectAtIndex:i]);
+        // NSLog(@"%@", [[slides objectAtIndex:i] class]);
+    }
 
     for(int i = 0; i < slides.count; i++) {
         UIView *subview = [[UIView alloc] initWithFrame:frame];
@@ -44,6 +50,7 @@
 }
 
 - (id) title:(CGRect)frame text:(NSString *)text{
+    NSLog(@"set title: %@", text);
     float margin = 10;
     float height = frame.size.height * 0.3;
     // Set title for each slide
@@ -75,6 +82,7 @@
         // contents.lineBreakMode = UILineBreakModeClip;
         // contents.numberOfLines = 2;
         contents.text = [array objectAtIndex:i];
+    NSLog(@"set content %d: %@", i, contents.text);
         [view addSubview:contents];
         [contents release];
     }
