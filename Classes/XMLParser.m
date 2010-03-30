@@ -62,7 +62,10 @@
     if ([elementName isEqualToString:@"page"]) {
       [array addObject:[NSMutableDictionary dictionary]];
     } else if ([elementName isEqualToString:@"content"]) {
-              [[array lastObject] setObject:[NSMutableArray array] forKey:elementName];
+        NSLog(@"*****%@", [[array lastObject] class]);
+        if (![[array lastObject] objectForKey:elementName]) {
+            [[array lastObject] setObject:[NSMutableArray array] forKey:elementName];
+        }
     }
     currentKey = elementName;
     NSLog(@"start: %@", elementName);
@@ -82,6 +85,8 @@
     if ([currentKey isEqualToString:@"title"]) {
         [[array lastObject] setValue:string forKey:currentKey];
     } else if ([currentKey isEqualToString:@"content"]){
+        NSLog(@"%@", [[array lastObject] objectForKey:currentKey]);
+        NSLog(@"%@:%@", currentKey, string);
         [[[array lastObject] objectForKey:currentKey] addObject:string];
     } else {
     }
