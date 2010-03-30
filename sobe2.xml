@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <slides>
     <page>
-        <title>タイトル1</title>
-        <content>内容1-1</content>
-        <content>内容1-2</content>
+        <title>title1</title>
+        <content>cont1-1</content>
+        <content>cont1-2</content>
     </page>
 
     <page>
-        <title>ページ2</title>
-        <content>内容2</content>
+        <title>title2</title>
+        <content>cont2-1</content>
+        <content>cont2-2</content>
+        <content>cont2-3</content>
+        <content>cont2-4</content>
     </page>
 </slides>
