@@ -23,7 +23,7 @@
 }
 
 - (NSMutableArray *)parseXMLFileByName:(NSString *)file parseError:(NSError **)error{
-    NSMutableArray *array = [[NSMutableArray alloc] init];
+    array = [NSMutableArray array];
     NSURL *url;
     NSBundle *bundle = [NSBundle mainBundle];
     if (bundle) {
@@ -33,6 +33,7 @@
         }
     }
     [self parseXMLFileAtURL:url parseError:&error];
+    NSLog(@"result array: %@", array);
     return array;
 }
 
@@ -57,13 +58,15 @@
         elementName = qName;
     }
     if ([elementName isEqualToString:@"page"]) {
-                    [array addObject:[[NSMutableDictionary alloc] init]];
-    } else if ([elementName isEqualToString:@"page"]) {
-              [[array lastObject] setObject:[[NSMutableArray alloc] init] forKey:elementName];
+      [array addObject:[NSMutableDictionary dictionary]];
+    } else if ([elementName isEqualToString:@"content"]) {
+        NSLog(@"*****%@", [[array lastObject] class]);
+        if (![[array lastObject] objectForKey:elementName]) {
+            [[array lastObject] setObject:[NSMutableArray array] forKey:elementName];
+        }
     }
     currentKey = elementName;
     NSLog(@"start: %@", elementName);
-    // NSLog(@"currentKey: %@", currentKey);
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
@@ -71,22 +74,20 @@
     if (qName) {
         elementName = qName;
     }
+    NSLog(@"end: %@", currentKey);
     currentKey = nil;
-    NSLog(@"end: %@", elementName);
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
-//    if (![string isEqualToString:@""]){
-//                  NSLog(@"string: %@", string);
-//    }
     if ([currentKey isEqualToString:@"title"]) {
         [[array lastObject] setValue:string forKey:currentKey];
     } else if ([currentKey isEqualToString:@"content"]){
-          [[[array lastObject] objectForKey:currentKey] addObject:string];
+        NSLog(@"%@", [[array lastObject] objectForKey:currentKey]);
+        NSLog(@"%@:%@", currentKey, string);
+        [[[array lastObject] objectForKey:currentKey] addObject:string];
     } else {
     }
-        NSLog(@"%@:%@", currentKey, string);
 }
 
 @end
