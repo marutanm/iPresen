@@ -40,7 +40,7 @@
     view.backgroundColor = [UIColor darkGrayColor];
     UILabel *title = [self title:view.frame text:[dict objectForKey:@"title"]];
     // title.text = [dict objectForKey:@"title"];
-    UILabel *contents = [self contents:view.frame array:[dict objectForKey:@"contents"]];
+    UILabel *contents = [self contents:view.frame array:[dict objectForKey:@"content"]];
 
     [view addSubview:title];
     [view addSubview:contents];
