@@ -16,7 +16,7 @@
 
     // load XML file
     NSError *parseError = nil;
-    NSMutableArray *slides= [[XMLParser alloc] parseXMLFileByName:@"sobe2" parseError:&parseError];
+    NSMutableArray *slides= [[XMLParser alloc] parseXMLFileByName:@"contents" parseError:&parseError];
     NSLog(@"slides");
     NSLog(@"%@", [slides class]);
     for(int i = 0; i < slides.count; i++) {
